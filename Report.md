@@ -1,37 +1,37 @@
 # รายงานผลการทดลอง
 
-<ชื่อ-นามสกุล> <รหัสนักศึกษา>
+<ชื่อ-นามสกุล นาย สิขเรศ คุ้มยิ้ม รหัสนักศึกษา 603410220-8>
 
 ## คำสั่งการแสดงผลผ่าน Logcat
 
 Debug log
 
 ```kotlin
-//Add your code here
+Log.d("TAG", "Message"
 ```
 
 Error log
 
 ```kotlin
-//Add your code here
+Log.e("TAG", "Message")
 ```
 
 Info log
 
 ```kotlin
-//Add your code here
+Log.i("TAG", "Message")
 ```
 
 Verbose log
 
 ```kotlin
-//Add your code here
+Log.v("TAG", "Message")
 ```
 
 Warning log
 
 ```kotlin
-//Add your code here
+Log.w("TAG", "Message")
 ```
 
 ## SNACKBAR และ TOST
@@ -39,13 +39,13 @@ Warning log
 คำสั่งแสดง Snackbar
 
 ```kotlin
-//Add your code here
+Snackbar.make(View, "-- Snackbar --", Snackbar.LENGTH_SHORT).show()
 ```
 
 คำสั่งแสดง Tost
 
 ```kotlin
-//Add your code here
+Toast.makeText(this,"-- Toast --",Toast.LENGTH_SHORT).show()
 ```
 
 ## Android LiveCycle Activity
@@ -55,43 +55,64 @@ Warning log
 1. onCreate() ->
 
 ```kotlin
-//Add your code here
+override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        Log.i("onCreate","--- Created Activity ---")
 ```
 
 2. onStart() ->
 
 ```kotlin
-//Add your code here
+override fun onStart() {
+        super.onStart()
+        Log.i("Ac Start", "Start!!")
+        }
 ```
 
 3. onResume() ->
 
 ```kotlin
-//Add your code here
+override fun onResume() {
+        super.onResume()
+        Log.i("onResume", "Resume!!")
+        }
 ```
 
 4. onPause() ->
 
 ```kotlin
-//Add your code here
+override fun onPause() {
+        super.onPause()
+        Log.i("Ac Pause", "Pause!!")
+        }
 ```
 
 5. onStop() ->
 
 ```kotlin
-//Add your code here
+override fun onStop() {
+        super.onStop()
+        Log.i("Ac Stop", "Stop!!")
+        }
 ```
 
 6. onDestroy() ->
 
 ```kotlin
-//Add your code here
+override fun onDestroy() {
+        super.onDestroy()
+        Log.i("Ac Destroy", "Destroy!!")
+        }
 ```
 
 7. onRestart() ->
 
 ```kotlin
-//Add your code here
+override fun onRestart() {
+        super.onRestart()
+        Log.i("Ac Restart", "onRestart")
+        }
 ```
 
 ## Start new Activity
@@ -99,11 +120,24 @@ Warning log
 คำสั่งสำหรับเปิด activity ใหม่
 
 ```kotlin
-//Add your code here
+var i = Intent(this,Main2Activity::class.java)
+            startActivity(i)
 ```
 
 คำสั่งสำหรับเปิด activity ใหม่ ผ่านเมนู setting
 
 ```kotlin
-//Add your code here
+ override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        return when (item.itemId) {
+            R.id.action_settings -> true
+            R.id.action_settings ->{
+                Toast.makeText(this,"Menu Click",Toast.LENGTH_SHORT)
+                return true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
 ```
